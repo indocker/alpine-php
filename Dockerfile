@@ -20,9 +20,9 @@ RUN sed -i 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g' /etc/php7/php.ini && \
     sed -i "s/nginx:x:100:101:nginx:\/var\/lib\/nginx:\/sbin\/nologin/nginx:x:100:101:nginx:\/usr:\/bin\/bash/g" /etc/passwd- && \
     ln -s /sbin/php-fpm7 /sbin/php-fpm
 
-ADD config/nginx.conf /etc/nginx/
-ADD config/server.conf /etc/nginx/
-ADD config/php-fpm.conf /etc/php7/
+ADD config/etc-nginx/nginx.conf /etc/nginx/
+ADD config/etc-nginx/server.conf /etc/nginx/
+ADD config/etc-php7/php-fpm.conf /etc/php7/
 ADD run.sh /
 RUN chmod +x /run.sh
 
